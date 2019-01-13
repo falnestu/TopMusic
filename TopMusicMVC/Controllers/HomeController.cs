@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TopMusicMVC.Models;
 
 namespace TopMusicMVC.Controllers
 {
@@ -10,7 +11,9 @@ namespace TopMusicMVC.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            var viewModel = new HomeViewModel();
+            viewModel.Top = BU.RankManager.GetTop3ByCategoryID(1);
+            return View(viewModel);
         }
 
         public ActionResult About()
