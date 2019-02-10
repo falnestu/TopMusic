@@ -1,16 +1,18 @@
-﻿using System;
+﻿using DAL.Model;
+using Domain.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using TopMusicMVC.BU.Entities;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace TopMusicMVC.BU
+namespace Domain.Services
 {
-    public class RankManager
+    public class RankingService
     {
         public static List<RankAlbum> GetTop3ByCategoryID(int categoryID)
         {
-            using (DAL.Model.TopMusicEntities db = new DAL.Model.TopMusicEntities())
+            using (TopMusicEntities db = new TopMusicEntities())
             {
                 var query = db.Album
                     .Where(a => a.CategoryID == categoryID && a.User.Any())

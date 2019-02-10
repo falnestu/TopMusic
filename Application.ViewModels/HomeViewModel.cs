@@ -1,10 +1,11 @@
-﻿using System;
+﻿using Domain.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using TopMusicMVC.BU.Entities;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace TopMusicMVC.Models
+namespace Application.ViewModels
 {
     public class HomeViewModel
     {
