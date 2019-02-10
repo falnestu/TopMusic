@@ -274,10 +274,6 @@
       <Project>{F90FAF83-E085-4894-87E1-3433DE4FD277}</Project>
       <Name>Application.ViewModels</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DAL.Model\DAL.Model.csproj">
-      <Project>{eb6c4650-3de5-4235-9a70-1938b998e7f4}</Project>
-      <Name>DAL.Model</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
