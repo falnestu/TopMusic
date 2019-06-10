@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Application.ViewModels.CategoryViewModel>
+
+@{
+    ViewBag.Title = "View";
+}
+
+
+<h2>Categories</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<div class="data-table-wrapper card card-small mb-4">
+    <table class="table table-striped mb-0" data-table="on">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Description</th>
+                <th>Statut</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+
+
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Category.Name</td>
+                    <td>@item.Category.Description</td>
+                    <td>@item.Category.Statut</td>
+                    <td>
+                        @Html.ActionLink("Albums", "Details", new { id = item.Category.CategoryID })
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.Category.CategoryID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.Category.CategoryID })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

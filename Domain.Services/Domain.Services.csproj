@@ -48,10 +48,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CategoryService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RankingService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Common.Entities\Common.csproj">
+      <Project>{b4d280c8-c532-490e-ad5d-7d8cd6591812}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DAL.Model\DAL.Model.csproj">
       <Project>{EB6C4650-3DE5-4235-9A70-1938B998E7F4}</Project>
       <Name>DAL.Model</Name>

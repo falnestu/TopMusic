@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CategoryControllerService.cs" />
     <Compile Include="HomeControllerService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -48,6 +49,14 @@
     <ProjectReference Include="..\Application.ViewModels\Application.ViewModels.csproj">
       <Project>{F90FAF83-E085-4894-87E1-3433DE4FD277}</Project>
       <Name>Application.ViewModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common.Entities\Common.csproj">
+      <Project>{B4D280C8-C532-490E-AD5D-7D8CD6591812}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL.Model\DAL.Model.csproj">
+      <Project>{EB6C4650-3DE5-4235-9A70-1938B998E7F4}</Project>
+      <Name>DAL.Model</Name>
     </ProjectReference>
     <ProjectReference Include="..\Domain.Entities\Domain.Entities.csproj">
       <Project>{976CB418-BF02-45DB-842D-D039A07F0F9E}</Project>

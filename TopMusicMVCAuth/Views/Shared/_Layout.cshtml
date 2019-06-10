@@ -9,6 +9,8 @@
     <title>Top Music - @ViewBag.Title</title>
 
     <link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.2/css/responsive.bootstrap4.min.css" />
     @Styles.Render("~/Content/css")
 </head>
 <body>
@@ -31,8 +33,19 @@
     </div>
     <!-- /.navbar -->
 
-    @RenderBody()
+    <header id="head" class="secondary"></header>
 
+    <div class="container">
+        <div class="row">
+            @if (ViewBag.FlashMessageText != null)
+            {
+                <div class="alert alert-@ViewBag.FlashMessageType">
+                    @ViewBag.FlashMessageText
+                </div>
+            }
+            @RenderBody()
+        </div>
+    </div>
     <footer id="footer" class="top-space">
 
         <div class="footer1">
@@ -109,6 +122,9 @@
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/headroom")
     @Scripts.Render("~/bundles/template")
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
     @RenderSection("scripts", required: false)
 </body>
 </html>
