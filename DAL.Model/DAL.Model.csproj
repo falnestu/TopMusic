@@ -53,6 +53,18 @@
     <Compile Include="Album.cs">
       <DependentUpon>TopMusicEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="AspNetRoles.cs">
+      <DependentUpon>TopMusicEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetUserClaims.cs">
+      <DependentUpon>TopMusicEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetUserLogins.cs">
+      <DependentUpon>TopMusicEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetUsers.cs">
+      <DependentUpon>TopMusicEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Category.cs">
       <DependentUpon>TopMusicEntities.tt</DependentUpon>
     </Compile>
