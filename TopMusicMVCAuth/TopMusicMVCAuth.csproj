@@ -211,6 +211,14 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\images\1.jpg" />
+    <Content Include="Content\images\2.jpg" />
+    <Content Include="Content\images\bg_header.jpg" />
+    <Content Include="Content\images\gt_favicon.png" />
+    <Content Include="Content\images\logo.png" />
+    <Content Include="Content\images\mac.jpg" />
+    <Content Include="Content\main.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -281,6 +289,16 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Application.Services\Application.Services.csproj">
+      <Project>{B713A60E-BB99-41E3-A4C2-0DCBA444476A}</Project>
+      <Name>Application.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Application.ViewModels\Application.ViewModels.csproj">
+      <Project>{f90faf83-e085-4894-87e1-3433de4fd277}</Project>
+      <Name>Application.ViewModels</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
