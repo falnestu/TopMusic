@@ -66,6 +66,9 @@
           <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
           <Property Name="AccessFailedCount" Type="int" Nullable="false" />
           <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="Created" Type="datetime" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <EntityType Name="Category">
           <Key>
@@ -95,7 +98,6 @@
           </Key>
           <Property Name="UserID" Type="int" Nullable="false" />
           <Property Name="AlbumID" Type="int" Nullable="false" />
-          <Property Name="AspNetUserID" Type="nvarchar" MaxLength="128" />
         </EntityType>
         <Association Name="FK_Album_Category">
           <End Role="Category" Type="Self.Category" Multiplicity="1" />
@@ -177,15 +179,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Vote_AspNetUsers">
-          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+        <Association Name="FK_Vote_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
           <End Role="Vote" Type="Self.Vote" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
-              <PropertyRef Name="Id" />
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
             </Principal>
             <Dependent Role="Vote">
-              <PropertyRef Name="AspNetUserID" />
+              <PropertyRef Name="UserID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -223,8 +225,8 @@
             <End Role="Album" EntitySet="Album" />
             <End Role="Vote" EntitySet="Vote" />
           </AssociationSet>
-          <AssociationSet Name="FK_Vote_AspNetUsers" Association="Self.FK_Vote_AspNetUsers">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          <AssociationSet Name="FK_Vote_User" Association="Self.FK_Vote_User">
+            <End Role="User" EntitySet="User" />
             <End Role="Vote" EntitySet="Vote" />
           </AssociationSet>
         </EntityContainer>
@@ -361,6 +363,9 @@
           <NavigationProperty Name="AspNetUserClaims" Relationship="TopMusicModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
           <NavigationProperty Name="AspNetUserLogins" Relationship="TopMusicModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
           <NavigationProperty Name="AspNetRoles" Relationship="TopMusicModel.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+          <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
           <End Type="TopMusicModel.AspNetUsers" Role="AspNetUsers" Multiplicity="1">
@@ -473,6 +478,9 @@
           <EntitySetMapping Name="AspNetUsers">
             <EntityTypeMapping TypeName="TopMusicModel.AspNetUsers">
               <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
                 <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
