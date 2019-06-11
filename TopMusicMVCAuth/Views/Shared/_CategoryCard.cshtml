@@ -1,0 +1,21 @@
+﻿@model Application.ViewModels.CategoryCardViewModel
+
+<div class="col-sm-4">
+    <h4>@Model.Category.Name</h4>
+    <ul class="list-group">
+        @if (Model.Top.Any())
+        {
+            foreach (var item in Model.Top)
+            {
+                <li class="list-group-item">
+                    <span class="badge">@item.NumberVotes</span>
+                    <span><strong>@item.Rank</strong></span> @item.AlbumDescription
+                </li>
+            }
+        }
+        else
+        {
+            <p>Les votes sont ouverts pour cette catégorie. Soyez le premier a voté !</p>
+        }
+    </ul>
+</div>

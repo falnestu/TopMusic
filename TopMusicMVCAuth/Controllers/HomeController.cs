@@ -22,18 +22,12 @@ namespace TopMusicMVCAuth.Controllers
             return View(viewModel);
         }
 
-        public ActionResult About()
+        public ActionResult Classement()
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
+            var viewModel = _controllerService.GetClassementViewModel();
+            return View(viewModel);
         }
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
+       
     }
 }

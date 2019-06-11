@@ -1,0 +1,13 @@
+﻿@model Application.ViewModels.ClassementViewModel
+
+@{
+    ViewBag.Title = "Classement";
+}
+
+<h2>Classement (par popularité)</h2>
+
+@foreach (var category in Model.AllPopulaires)
+{
+    @Html.Partial("_CategoryCard", category)
+}
+

@@ -6,16 +6,23 @@
 
 <div class="container">
     <div class="row">
-
-        <div class="col-sm-3">
-            <h3>Category Name</h3>
-            @foreach (var item in Model.Top)
-            {
-                <p>@item.Rank</p>
-                <p>@item.AlbumDescription</p>
-                <p>@item.NumberVotes votes</p>
-            }
-            <p></p>
-        </div>
+        <h1>Top Music</h1>
+        <h2>They need you</h2>
+        <hr />
+    </div>
+    <div class="row">
+        <h3>Populaires</h3>
+        @foreach (var category in Model.Populaires)
+        {
+            @Html.Partial("_CategoryCard", category)
+        }
+        <hr />
+    </div>
+    <div class="row">
+        <h3>Nouvelles</h3>
+        @foreach (var category in Model.Nouvelles)
+        {
+            @Html.Partial("_CategoryCard", category)
+        }
     </div>
 </div>

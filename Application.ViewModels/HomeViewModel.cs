@@ -9,6 +9,12 @@ namespace Application.ViewModels
 {
     public class HomeViewModel
     {
-        public List<RankAlbum> Top { get; set; }
+        public HomeViewModel()
+        {
+            Populaires = new List<CategoryCardViewModel>();
+            Nouvelles = new List<CategoryCardViewModel>();
+        }
+        public List<CategoryCardViewModel> Populaires { get; set; }
+        public List<CategoryCardViewModel> Nouvelles { get; set; }
     }
 }

@@ -20,6 +20,32 @@ namespace Domain.Services
             return categories;
         }
 
+        public static List<Category> GetPopulaires()
+        {
+            List<Category> categories = null;
+            using (TopMusicEntities db = new TopMusicEntities())
+            {
+                categories = db.Album
+                    .Select(x => new { x.AlbumID, x.Category, Votes = x.User.Count })
+                    .GroupBy(x => x.Category)
+                    .Select(g => new { Category = g.Key, NbVotes = g.Sum(x => x.Votes) })
+                    .OrderByDescending(x => x.NbVotes)
+                    .Select(x => x.Category)
+                    .ToList();
+            }
+            return categories;
+        }
+
+        public static List<Category> GetNewest()
+        {
+            List<Category> categories = null;
+            using (TopMusicEntities db = new TopMusicEntities())
+            {
+                categories = db.Category.Where(c => c.Statut == (int)CategoryStatus.Opened).OrderByDescending(x => x.CategoryID).ToList();
+            }
+            return categories;
+        }
+
         public static bool Delete(int id)
         {
             using (TopMusicEntities db = new TopMusicEntities())

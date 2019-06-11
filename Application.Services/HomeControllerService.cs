@@ -13,7 +13,41 @@ namespace Application.Services
         public HomeViewModel GetHomeViewModel()
         {
             var viewModel = new HomeViewModel();
-            viewModel.Top = RankingService.GetTop3ByCategoryID(1);
+            List<DAL.Model.Category> categories = CategoryService.GetPopulaires();
+            foreach (var category in categories.Take(3))
+            {
+                viewModel.Populaires.Add(new CategoryCardViewModel
+                {
+                    Category = category,
+                    Top = RankingService.GetTop3ByCategoryID(category.CategoryID)
+                });
+            }
+
+            List<DAL.Model.Category> newCategories = CategoryService.GetNewest();
+            foreach (var category in newCategories.Take(3))
+            {
+                viewModel.Nouvelles.Add(new CategoryCardViewModel
+                {
+                    Category = category,
+                    Top = RankingService.GetTop3ByCategoryID(category.CategoryID)
+                });
+            }
+            return viewModel;
+        }
+
+        public ClassementViewModel GetClassementViewModel()
+        {
+            var viewModel = new ClassementViewModel();
+
+            foreach (var category in CategoryService.GetPopulaires())
+            {
+                viewModel.AllPopulaires.Add(new CategoryCardViewModel
+                {
+                    Category = category,
+                    Top = RankingService.GetTop3ByCategoryID(category.CategoryID)
+                });
+            }
+
             return viewModel;
         }
     }

@@ -44,7 +44,9 @@
   <ItemGroup>
     <Compile Include="AlbumSearchModel.cs" />
     <Compile Include="AlbumsViewModel.cs" />
+    <Compile Include="CategoryCardViewModel.cs" />
     <Compile Include="CategoryViewModel.cs" />
+    <Compile Include="ClassementViewModel.cs" />
     <Compile Include="CreateCategoryViewModel.cs" />
     <Compile Include="EditCategoryViewModel.cs" />
     <Compile Include="HomeViewModel.cs" />
