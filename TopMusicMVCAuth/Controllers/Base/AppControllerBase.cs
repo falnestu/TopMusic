@@ -10,8 +10,8 @@ namespace TopMusicMVCAuth.Controllers.Base
     {
         private void SetFlash(string type, string text)
         {
-            ViewBag.FlashMessageType = type;
-            ViewBag.FlashMessageText = text;
+            TempData["FlashMessageType"] = type;
+            TempData["FlashMessageText"] = text;
         }
 
         public void SetSuccessFlash(string text)
@@ -22,6 +22,11 @@ namespace TopMusicMVCAuth.Controllers.Base
         public void SetErrorFlash(string text)
         {
             SetFlash("danger", text);
+        }
+
+        public void SetWarningFlash(string text)
+        {
+            SetFlash("warning", text);
         }
     }
 }

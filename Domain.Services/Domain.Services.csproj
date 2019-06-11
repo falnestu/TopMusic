@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlbumService.cs" />
     <Compile Include="CategoryService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RankingService.cs" />
@@ -64,6 +65,10 @@
     <ProjectReference Include="..\Domain.Entities\Domain.Entities.csproj">
       <Project>{976CB418-BF02-45DB-842D-D039A07F0F9E}</Project>
       <Name>Domain.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MusicBrainzServiceAgent\MusicBrainzServiceAgent.csproj">
+      <Project>{C0565A38-54ED-4318-A495-D1B2CF268FE5}</Project>
+      <Name>MusicBrainzServiceAgent</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

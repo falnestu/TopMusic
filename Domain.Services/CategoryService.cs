@@ -30,6 +30,7 @@ namespace Domain.Services
                     return false;
                 }
 
+                db.Album.RemoveRange(category.Album);
                 db.Category.Remove(category);
                 db.SaveChanges();
                 return true;
@@ -69,32 +70,6 @@ namespace Domain.Services
                 category.Description = description;
                 category.Statut = (int)status;
                 return db.SaveChanges();
-            }
-        }
-
-        public static bool ToggleStatus(int categoryID, bool visibility, bool votable)
-        {
-            using (TopMusicEntities db = new TopMusicEntities())
-            {
-                var category = db.Category.Find(categoryID);
-                if (category == null)
-                {
-                    return false;
-                }
-
-                CategoryStatus categoryStatus;
-                if (!visibility)
-                {
-                    categoryStatus = CategoryStatus.Invisible;
-                }
-                else
-                {
-                    categoryStatus = votable ? CategoryStatus.Opened : CategoryStatus.Closed;
-                }
-
-                category.Statut = (int)categoryStatus;
-                db.SaveChanges();
-                return true;
             }
         }
     }

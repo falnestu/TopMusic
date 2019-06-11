@@ -42,6 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlbumSearchModel.cs" />
+    <Compile Include="AlbumsViewModel.cs" />
     <Compile Include="CategoryViewModel.cs" />
     <Compile Include="CreateCategoryViewModel.cs" />
     <Compile Include="EditCategoryViewModel.cs" />

@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace TopMusicMVCAuth.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class CategoryController : TopMusicMVCAuth.Controllers.Base.AppControllerBase
     {
         private readonly CategoryControllerService _controllerService;
@@ -25,8 +26,7 @@ namespace TopMusicMVCAuth.Areas.Admin.Controllers
 
         public ActionResult Create()
         {
-            var viewModel = new Application.ViewModels.CreateCategoryViewModel();
-            return View(viewModel);
+            return View();
         }
 
         // POST: MG/Sensibilite/Create

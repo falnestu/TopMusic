@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlbumControllerService.cs" />
     <Compile Include="CategoryControllerService.cs" />
     <Compile Include="HomeControllerService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -26,6 +26,10 @@
                 <ul class="nav navbar-nav pull-right">
                     <li class="active"><a href="#">Home</a></li>
                     <li>@Html.ActionLink("Classement", "Classement")</li>
+                    @if(User.IsInRole("Admin"))
+                    {
+                    <li>@Html.ActionLink("Categories", "Index", "Category", new { area = "admin" })</li>
+                    }
                     @Html.Partial("_LoginPartial")
                 </ul>
             </div><!--/.nav-collapse -->
@@ -37,10 +41,14 @@
 
     <div class="container">
         <div class="row">
-            @if (ViewBag.FlashMessageText != null)
+            @{ 
+                var flashMessageText = (string)TempData["FlashMessageText"];
+                var flashMessageType = (string)TempData["FlashMessageType"];
+            }
+            @if (!string.IsNullOrEmpty(flashMessageText))
             {
-                <div class="alert alert-@ViewBag.FlashMessageType">
-                    @ViewBag.FlashMessageText
+                <div class="alert alert-@flashMessageType">
+                    @flashMessageText
                 </div>
             }
             @RenderBody()
