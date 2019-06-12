@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Model
 {
-    public partial class User
+    public partial class AspNetUsers
     {
         public string FullName {
             get
@@ -16,7 +16,7 @@ namespace DAL.Model
         }
         public override string ToString()
         {
-            return $"{UserID}-{FullName}";
+            return $"{Id}-{FullName}";
         }
     }
 }

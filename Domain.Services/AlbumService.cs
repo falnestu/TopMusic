@@ -4,6 +4,7 @@ using MusicBrainzServiceAgent;
 using MusicBrainzServiceAgent.Entities;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,6 +19,16 @@ namespace Domain.Services
             using (TopMusicEntities db = new TopMusicEntities())
             {
                 albums = db.Album.Where(a => a.CategoryID == categoryID).ToList();
+            }
+            return albums;
+        }
+
+        public static List<Album> GetAlbumsVotedByCategoryIDAndUserID(int categoryID,string userID)
+        {
+            List<Album> albums = null;
+            using (TopMusicEntities db = new TopMusicEntities())
+            {
+                albums = db.Album.Where(a => a.CategoryID == categoryID && a.AspNetUsers.Any(u => u.Id == userID)).ToList();
             }
             return albums;
         }

@@ -26,7 +26,7 @@ namespace Domain.Services
             using (TopMusicEntities db = new TopMusicEntities())
             {
                 categories = db.Album
-                    .Select(x => new { x.AlbumID, x.Category, Votes = x.User.Count })
+                    .Select(x => new { x.AlbumID, x.Category, Votes = x.AspNetUsers.Count })
                     .GroupBy(x => x.Category)
                     .Select(g => new { Category = g.Key, NbVotes = g.Sum(x => x.Votes) })
                     .OrderByDescending(x => x.NbVotes)

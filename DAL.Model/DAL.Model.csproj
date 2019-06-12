@@ -85,37 +85,32 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TopMusicEntities.edmx</DependentUpon>
     </Compile>
-    <Compile Include="User.cs">
-      <DependentUpon>TopMusicEntities.tt</DependentUpon>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <EntityDeploy Include="TopMusicEntities.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>TopMusicEntities.Designer.cs</LastGenOutput>
-    </EntityDeploy>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
     <None Include="packages.config" />
+    <EntityDeploy Include="TopMusicEntities.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>TopMusicEntities.Designer.cs</LastGenOutput>
+    </EntityDeploy>
     <None Include="TopMusicEntities.edmx.diagram">
       <DependentUpon>TopMusicEntities.edmx</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="TopMusicEntities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>TopMusicEntities.Context.cs</LastGenOutput>
       <DependentUpon>TopMusicEntities.edmx</DependentUpon>
+      <LastGenOutput>TopMusicEntities.Context.cs</LastGenOutput>
     </Content>
     <Content Include="TopMusicEntities.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>TopMusicEntities.edmx</DependentUpon>
       <LastGenOutput>TopMusicEntities.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

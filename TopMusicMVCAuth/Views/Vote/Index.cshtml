@@ -1,0 +1,27 @@
+﻿@model Application.ViewModels.VoteViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>@Model.Category.Name</h2>
+
+
+<div class="col-sm-6">
+    <p>@Model.Category.Description</p>
+</div>
+
+<div class="col-sm-6">
+    <ul class="list-group">
+        @foreach (var album in Model.Albums)
+        {
+        <li class="list-group-item align-middle">
+            <span class="badge">@album.Album.NumberVotes</span>
+            <span class="align-middle"><strong>@album.Album.Rank</strong></span> @album.Album.AlbumDescription
+            <a href="@Url.Action("Vote", new { id = album.Album.AlbumID, categoryID = Model.Category.CategoryID, actual = album.IsUserVote })">
+                <span class="glyphicon glyphicon-heart@(album.IsUserVote ? "" : "-empty")"></span>
+            </a>
+        </li>
+        }
+    </ul>
+</div>

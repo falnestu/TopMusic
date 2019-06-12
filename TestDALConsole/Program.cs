@@ -12,7 +12,7 @@ namespace TestDALConsole
         {
             using (var db = new DAL.Model.TopMusicEntities())
             {
-                var users = db.User.ToList();
+                var users = db.AspNetUsers.ToList();
                 users.ForEach(user =>
                     Console.WriteLine(user));
             }

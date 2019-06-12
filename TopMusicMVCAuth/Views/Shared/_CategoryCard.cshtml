@@ -1,7 +1,9 @@
 ﻿@model Application.ViewModels.CategoryCardViewModel
 
 <div class="col-sm-4">
-    <h4>@Model.Category.Name</h4>
+    <a href="@Url.Action("Index", "Vote", new { id = Model.Category.CategoryID })">
+        <h4>@Model.Category.Name</h4>
+    </a>
     <ul class="list-group">
         @if (Model.Top.Any())
         {

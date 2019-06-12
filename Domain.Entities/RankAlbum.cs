@@ -8,6 +8,7 @@ namespace Domain.Entities
 {
     public class RankAlbum
     {
+        public int AlbumID { get; set; }
         public int Rank { get; set; }
         public int NumberVotes { get; set; }
         public string AlbumDescription { get; set; }
