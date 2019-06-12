@@ -22,15 +22,12 @@
             </tr>
         </thead>
         <tbody>
-
-
-
             @foreach (var item in Model)
             {
                 <tr>
                     <td>@item.Category.Name</td>
                     <td>@item.Category.Description</td>
-                    <td>@item.Category.Statut</td>
+                    <td>@item.Status</td>
                     <td>
                         @Html.ActionLink("Albums", "Index", "Album", new { id = item.Category.CategoryID }, null)
                     </td>

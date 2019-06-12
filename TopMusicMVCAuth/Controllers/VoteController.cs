@@ -4,9 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
 
 namespace TopMusicMVCAuth.Controllers
 {
+    [Authorize]
     public class VoteController : Base.AppControllerBase
     {
         private readonly VoteControllerService _controllerService;
@@ -19,7 +21,7 @@ namespace TopMusicMVCAuth.Controllers
         // GET: Category/{id}
         public ActionResult Index(int id)
         {
-            var viewModel = _controllerService.GetVoteViewModel(id);
+            var viewModel = _controllerService.GetVoteViewModel(id, User.Identity.GetUserId());
             return View(viewModel);
         }
 
@@ -27,7 +29,7 @@ namespace TopMusicMVCAuth.Controllers
         public ActionResult Vote(int id, int categoryID, bool actual)
         {
             string message;
-            if (_controllerService.ToggleVote(id, categoryID, "2d45d901-1776-4a5f-987c-4dd5bf460185", actual, out message))
+            if (_controllerService.ToggleVote(id, categoryID, User.Identity.GetUserId(), actual, out message))
             {
                 SetSuccessFlash(message);
             }

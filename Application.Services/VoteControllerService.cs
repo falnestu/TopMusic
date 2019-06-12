@@ -11,13 +11,12 @@ namespace Application.Services
 {
     public class VoteControllerService
     {
-        public VoteViewModel GetVoteViewModel(int categoryID)
+        public VoteViewModel GetVoteViewModel(int categoryID, string userID)
         {
             var viewModel = new VoteViewModel()
             {
                 Category = CategoryService.Get(categoryID)
             };
-            var userID = "2d45d901-1776-4a5f-987c-4dd5bf460185";
             viewModel.Albums = GetAlbumsList(categoryID, userID);
             return viewModel;
         }

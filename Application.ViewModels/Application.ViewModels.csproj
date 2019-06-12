@@ -50,6 +50,7 @@
     <Compile Include="CreateCategoryViewModel.cs" />
     <Compile Include="EditCategoryViewModel.cs" />
     <Compile Include="HomeViewModel.cs" />
+    <Compile Include="ProfilViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VoteAlbumViewModel.cs" />
     <Compile Include="VoteViewModel.cs" />

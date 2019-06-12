@@ -16,7 +16,7 @@ namespace Domain.Services
             using (TopMusicEntities db = new TopMusicEntities())
             {
                 var query = db.Album
-                    .Where(a => a.CategoryID == categoryID && a.AspNetUsers.Any())
+                    .Where(a => a.CategoryID == categoryID)
                     .Select(g => new RankAlbum()
                     {
                         AlbumID = g.AlbumID,
